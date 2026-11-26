@@ -1,6 +1,6 @@
-DecodeLabs – Project 1: Data Cleaning & Preparation
+DecodeLabs – Task 1: Data Cleaning & Preparation
 
-📌 Project Overview
+📌 Task Overview
 This repository contains the data cleaning pipeline for the DecodeLabs Task 1. The objective was to take a raw e-commerce orders dataset and transform it into a clean, analysis-ready format using Python and Pandas.
 
 📊 Final Dataset Shape
