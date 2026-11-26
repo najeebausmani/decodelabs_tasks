@@ -1,0 +1,47 @@
+# DecodeLabs – Task 2: Exploratory Data Analysis (EDA)
+
+📌 Task Overview
+This repository contains the Exploratory Data Analysis (EDA) for the DecodeLabs Project 2. The goal of this analysis is to interrogate the cleaned e-commerce dataset to uncover hidden patterns, trends, and outliers, translating raw numbers into actionable business insights.
+
+📊 Dataset Overview
+- Source:`ecommerce-orders-clean dataset.xlsx` (Cleaned in Task 1)
+- Records: 1,200 orders
+- Timeframe: Jan 2023 – Jun 2025
+
+🛠️ Tools Used
+- Python 3
+- Pandas & NumPy (Data manipulation)
+- Matplotlib & Seaborn (Data visualization)
+- ReportLab (Automated PDF report generation)
+
+🔍 Key Analysis & Insights
+1. Descriptive Statistics (The "Logic Skeleton")
+- Total Price: Mean ($1,053.97) > Median ($823.62). This confirms the data is heavily **Right-Skewed** due to high-value outliers.
+- Quantity: Mean (2.95) ≈ Median (3.00), indicating a normal distribution for order sizes.
+
+2. Distributions & Outlier Detection
+- Using the IQR Method (Q1 = $410.52, Q3 = $1,578.47), the upper bound was calculated at $3,330.41.
+- 8 outlier orders were identified exceeding this bound. These are likely VIP or wholesale purchases rather than data entry errors.
+
+3. Correlation Mapping
+- Strong Positive Correlation (0.72):`UnitPrice` and `TotalPrice`.
+- Moderate Positive Correlation (0.65): `Quantity` and `ItemsInCart`.
+
+4. Categorical Trends & Business Impact
+- Top Revenue Drivers: Chair ($195.6k) and Printer ($195.6k).
+- Operational Risk: 'Cancelled' (20.8%) and 'Returned' (20.6%) orders combined account for 41.4% of all orders. This is a major revenue leak requiring immediate supply chain investigation.
+
+💡 Recommendations (The Verdict)
+1. VIP Tracking: Create a VIP program to retain customers making bulk (5-unit) purchases.
+2. Operational Audit: Investigate the high volume of Cancelled/Returned items (especially Chairs) to find supply chain issues.
+3. Pricing Strategy: Focus marketing on higher-tier products since `UnitPrice` drives `TotalPrice` more than `Quantity` does.
+
+📂 Repository Contents
+- `EDA.py`: The main Python script for statistical analysis, chart generation, and PDF creation.
+- `EDA.docx`: The Word document version of the final report.
+
+🚀 How to Run
+1. Ensure the cleaned dataset (`ecommerce-orders-clean dataset.xlsx`) is in the same directory.
+2. Install dependencies:
+   ```bash
+   pip install pandas numpy matplotlib seaborn reportlab openpyxl
