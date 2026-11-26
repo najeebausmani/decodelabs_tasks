@@ -1,0 +1,44 @@
+DecodeLabs – Project 1: Data Cleaning & Preparation
+
+📌 Project Overview
+This repository contains the data cleaning pipeline for the DecodeLabs Task 1. The objective was to take a raw e-commerce orders dataset and transform it into a clean, analysis-ready format using Python and Pandas.
+
+📊 Final Dataset Shape
+- Rows: 1,200
+- Columns: 14
+
+🛠️ Tools Used
+- Python 3
+- Pandas (Data manipulation)
+- NumPy (Numeric operations)
+- ReportLab (PDF report generation)
+
+🧹 Data Cleaning Steps (Change Log)
+The following operations were performed in `clean_orders.py`:
+
+| Change ID | Description | Impact | Status |
+| :--- | :--- | :--- | :--- |
+| CR001 | Imputed missing `CouponCode` using the mode | Preserved 1,200 records | Resolved |
+| CR002 | Removed duplicate `OrderID`s (kept first) | Achieved 0 duplicate IDs | Resolved |
+| CR003 | Standardized `Date` to ISO-8601 (YYYY-MM-DD) | 100% compliant | Resolved |
+| CR004 | Title-cased + trimmed text columns | Normalized text data | Resolved |
+| CR005 | Rounded `UnitPrice` & `TotalPrice` to 2 decimals | Fixed float artifacts | Resolved |
+
+✅ Verification Checklist
+After cleaning, the following assertions were passed:
+- Duplicate OrderIDs: 0
+- Rows failing ISO-8601 dates: 0
+- Nulls in critical fields: 0
+- Max decimals in UnitPrice: 2
+- Max decimals in TotalPrice: 2
+
+📂 Repository Contents
+- `clean_orders.py`: The main Python script containing the cleaning logic, verification assertions, and PDF report generation.
+- `Change_log.pdf`: The generated PDF report summarizing the cleaning process and verification metrics.
+- `Dataset_Cleaned_Project1.xlsx`: The final cleaned dataset (generated upon running the script).
+
+🚀 How to Run
+1. Ensure you have the raw dataset (`Dataset for Data Analytics.xlsx`) in the same directory.
+2. Install dependencies:
+   ```bash
+   pip install pandas numpy reportlab openpyxl
