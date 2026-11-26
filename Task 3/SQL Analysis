@@ -1,0 +1,50 @@
+DecodeLabs – Task 3: SQL Data Analysis
+
+📌 Task Overview
+This repository contains the SQL Data Analysis for DecodeLabs Task 3. Using SQLite, I queried the cleaned e-commerce dataset (1,200 orders from Jan 2023 – Jun 2025) to answer core business questions regarding sales volume, revenue trends, product performance, and customer retention.
+
+📊 Dataset Overview
+- Source: `ecommerce-orders-clean dataset.xlsx` (Cleaned in Task 1)
+- Table Name: `orders`
+- Records: 1,200
+- Columns: 14 (OrderID, Date, CustomerID, Product, Quantity, UnitPrice, TotalPrice, OrderStatus, etc.)
+
+🛠️ Tools Used
+- SQLite (Database Engine)
+- SQL (Data querying and aggregation)
+- Python (Pandas/ReportLab) (For cross-checking results and generating the PDF report)
+
+🔍 Key Business Findings
+
+1. Revenue & Sales Trends
+- Revenue is shrinking ~10% a year: H1 revenue fell from $286.5k (2023) to $257.1k (2024) to $231.9k (2025). 
+- Gross Order Value: $1,264,761.96 across 1,200 orders. Average order value is $1,053.97.
+
+2. Operational Risks (Cancellations & Returns)
+- 41.4% of orders are lost: Cancelled (20.8%) and Returned (20.6%) orders dominate the status breakdown.
+- Loss rates are consistent across all products (39.4% to 43.6%), indicating a business-wide supply chain or customer satisfaction issue rather than a single bad product. 
+
+3. Customer & Product Behavior
+- Product Performance: Chair ($195.6k) and Printer ($195.6k) are the top revenue drivers, closely followed by Laptop ($192.1k). Phone is the lowest ($151.7k). 
+- Basket Size Drives Value: Average order value scales linearly with quantity—from $351.88 for 1 unit to $1,750.86 for 5 units. 
+- Repeat Customers are Rare: Only 11 out of 1,189 customers placed more than one order. 
+
+4. Outliers (Cross-referencing Task 2)
+- Identified 8 outlier orders exceeding the IQR fence ($3,330.41) from Task 2. All 8 orders were for 5 units at $667+ per unit. 
+
+⚠️ Data Limitations & Cautions
+- Coupon Code Imputation: Task 1 imputed 309 blank `CouponCode` values with the mode (`FREESHIP`). As a result, the coupon analysis (Q16) overstates FREESHIP usage (622 orders vs. 313 in raw data). This field requires re-cleaning before drawing business conclusions.
+- Revenue Definition: Gross order value includes Cancelled, Returned, and Pending orders; it is not realised revenue.
+- Partial Year Data: 2025 only covers January–June, so year-over-year comparisons use H1 periods only.
+
+📂 Repository Contents
+- `project3_queries.sql`: The complete SQL script containing all 16 queries, categorized by concept (SELECT, WHERE, GROUP BY, HAVING, etc.).
+- `Project3_SQL_Report.pdf`: A comprehensive 9-page PDF report detailing the methodology, query catalogue, results, insights, and limitations.
+- `SQL_Results.xlsx`: An Excel workbook containing the raw output data for each of the 16 queries (one sheet per query).
+- `README.md`: This file.
+
+🚀 How to Run
+1. Load the cleaned dataset into a SQLite database:
+   ```sql
+   CREATE TABLE orders (...);
+   -- Import data from ecommerce-orders-clean dataset.xlsx
