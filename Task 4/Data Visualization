@@ -1,0 +1,43 @@
+DecodeLabs – Task 4: Data Visualization Story
+
+📌 Project Overview
+This contains the final Data Visualization Story for the DecodeLabs Task 4. The objective is to translate the SQL and EDA findings from the previous projects into a clear, executive-level narrative. The story focuses on identifying where the business is leaking revenue and providing actionable resolutions.
+
+📊 The Story Structure
+The report follows a classic **Situation → Complication → Resolution** narrative arc:
+
+1. Situation (The Baseline)
+- 1,200 orders from Jan 2023 to Jun 2025.
+- $1.26M gross order value.
+- $824 median order value (the fair headline, as the $1,054 average is skewed by large 5-unit orders).
+- 1,189 unique customers.
+
+2. Complication (The Problem)
+- Revenue is shrinking ~10% a year:** Q2 2025 came in 12% below Q2 2024. This is driven by both fewer orders (-2.5%) and smaller baskets (-7.5%).
+- A massive leak: 41.4% of all orders are Cancelled or Returned, representing $520k of the $1.26M gross order value.
+- It's a company-wide issue: Every product loses between 39.4% and 43.6% of its orders (not statistically significant, p = 0.98). It is not a single "problem product."
+- Basket size is the lever: A 5-unit order is worth $1,751, compared to $352 for a 1-unit order (a ~5x difference). Quantity and unit price are unrelated (r = 0.02).
+
+3. Resolution (The Action Plan)
+1. Investigate cancellations and returns: Since the leak is company-wide, look at fulfilment and policy. Start recording reason codes.
+2. Test multi-unit bundles: Pilot bundles or quantity discounts to increase basket size (from $352 to $1,751).
+3. Track the H1 decline monthly: Monitor the ~10% yearly decline (borderline significant, p = 0.053) before taking drastic action.
+4. Fix coupon data first: Imputation doubled FREESHIP (313 to 622). Relabel blanks as "No Coupon" before any coupon analysis.
+
+🛠️ Tools & Methodology
+- Data Source: Task 1 cleaned dataset (1,200 unique orders).
+- Methodology: Like-for-like Jan–Jun comparisons to remove seasonality. Bar and line charts only, with every axis starting at zero.
+- Statistical Rigor: Group differences and trends were checked with statistical tests (from Task 2).
+
+⚠️ Caveats
+- Order value includes Cancelled, Returned, and Pending orders; it is not realised revenue.
+- 2025 covers January–June only.
+- Product, payment, and referral differences are not statistically significant.
+- Coupon codes were imputed in Task 1, so coupon analysis is excluded from the final story.
+
+📂 Repository Contents
+- `Data Visualization.pdf`: The final 9-page presentation/storyboard.
+- `README.md`: This file.
+
+🚀 How to View
+Open the `Data Visualization.pdf` file to view the complete visual story with charts, callouts, and the resolution plan.
